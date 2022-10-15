@@ -1,0 +1,273 @@
+body{
+    margin: 0;
+    font-family: 'Lato', sans-serif;
+    font-size: 18px;
+}
+*,
+*:before,
+*:after
+{
+    box-sizing: border-box;
+}
+h1, h2, h3, h4, h5, h6{
+    margin: 0;
+}
+
+/* ------Container------- */
+.container{
+    width: 100%;
+    margin: 0 auto;
+    padding: 0 15px;
+}
+
+/* -------Header-------- */
+.header{
+    width: 100%;
+    position: absolute;
+    background-color: rgba(168, 208, 230, 1);
+    top: 0;
+    left: 0;
+    z-index: 1000;
+}
+
+.header-inner{
+    padding: 15px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.corner-title{
+    font-family: 'Lato', sans-serif;
+    color: #212121;
+    font-weight: 300;
+    font-size: 14px;
+    padding-left: 20px;
+}
+
+/* -------Nav------------- */
+.nav {
+    display: flex;
+    padding-right: 120px;
+}
+
+.nav-link {
+    color: #212121;
+    font-family: 'Lato', sans-serif;
+    opacity: 0.75;
+    text-decoration: none;
+    margin:0 20px;
+    padding-top: 10px;
+    font-weight: 500;
+}
+
+.nav-link:hover{
+    opacity: 1;
+}
+
+.logout{
+    display: none;
+}
+
+.logout.show{
+    display: flex;
+}
+
+.nav-link.form{
+    display: none;
+}
+.search{
+    background-color: rgba(168, 208, 230, 1);
+    border: none;
+    padding-top: 8px;
+}
+
+.icon-search{
+    width: 25px;
+    height: 25px;
+    cursor: pointer;
+}
+/* -----------Intro---------- */
+.intro{
+
+    padding-top: 96px;
+    background-color: rgb(240, 246, 251);
+}
+
+.intro-inner{
+    display: flex;
+    flex-direction: column;
+    align-items: center;  
+}
+
+.intro-title{
+    font-family: 'Lato', sans-serif;
+    font-size: 64px;
+    padding-top: 100px;
+    color: rgb(40, 38, 38);
+    font-weight: 400;
+}
+
+.intro-subtitle{
+    font-family: 'Lato', sans-serif;
+    font-size: 40px;
+    padding-top: 20px;
+    color: #212121;
+    font-weight: 300;
+}
+
+.btn-yellow{
+    background-color: rgba(248, 233, 161, 1);
+    margin-top: 20px;
+    color: rgb(36, 36, 36);
+}
+
+.btn{
+    display: inline-block; /* to set a width and height on the element.*/
+    vertical-align: top;
+    border: none;
+    border-radius: 20px;
+    font-family: 'Lato', sans-serif;
+    font-size: 16px;
+    font-weight: 300;
+    padding: 14px 55px;
+    cursor: pointer;
+}
+/* ---------------Reviews----------- */
+.reviews{
+    background-color: rgb(240, 246, 251);
+    margin: 0;
+    height:calc(100vh - 350px);
+}
+
+.reviews-inner{
+    display: flex;
+    justify-content: space-around;
+    padding: 100px 0 50px;
+}
+
+.comment{
+    width: 420px;
+    border-radius: 5px;
+    border: 1px solid rgb(73, 127, 177, 75%);
+    font-family: 'Lato', sans-serif;
+    font-weight: 300;
+}
+
+.comment-info{
+    padding: 20px 20px 0 20px;
+    margin-bottom: 0;
+
+}
+
+.reviewer-name{
+    float: right;
+    padding-right: 20px;
+    font-weight: 400;
+}
+
+/* -------------Footer------------ */
+
+.footer{
+    background-color: rgb(240, 246, 251);
+}
+
+.footer-inner{
+    display: flex;
+    justify-content: space-around;
+    border-top: 1px solid rgb(73, 127, 177, 75%);
+}
+
+.footer-block{
+    list-style-type: none;
+    text-decoration: none;
+    font-family: 'Lato', sans-serif;
+    font-size: 14px;
+    font-weight: 300;
+    padding-right: 5vw;
+}
+
+a{
+    text-decoration: none;
+    color: #212121;
+}
+
+/* -----------Title-----------*/
+.list-title{
+    background-color: rgb(240, 246, 251);
+    display: flex;
+    justify-content: center;
+}
+
+.list-title h2{
+    font-family: 'Lato', sans-serif;
+    font-size: 40px;
+    padding-top: 100px;
+    padding-bottom: 20px;
+    font-weight: 300;
+}
+/*----------WishList--------------*/
+.wishlist{
+    margin: 0;
+}
+.wishlist-inner{
+    padding: 20px 100px 0px 100px;
+}
+
+.btn-green{
+    background-color: rgb(62, 174, 60);
+    color: white;
+    margin-bottom: 30px;
+}
+
+.item{
+    border: 1px solid rgb(73, 127, 177, 75%);
+    height: 40px;
+}
+
+/*------------Form----------*/
+.form{
+    padding-top: 110px;
+    font-family: 'Lato', sans-serif;
+    font-weight: 300;
+}
+.form-title{
+    font-weight: 500;
+    font-size: 22px;
+}
+
+.form-label{
+    display: flex;
+    margin-bottom: 5px;
+    flex-direction: column;
+}
+
+.row{
+    padding-top: 20px;
+    padding-bottom: 10px;
+}
+.btn-form{
+    margin-top: 20px;
+    color: white;
+    background-color: rgb(62, 174, 60);
+    border-radius: 15px;
+    padding: 5px 25px;
+}
+
+.search-info{
+    margin-top: 10px;
+    font-family: 'Lato', sans-serif;
+    font-weight: 300;
+}
+
+.form-box{
+    border: 1px solid #212121;
+    border-radius: 5px;
+    height: 25px;
+}
+
+
+
+
+
+

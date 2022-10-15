@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Search</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Lato:wght@100;200;300;400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<!-- Header -->
+<header class="header" id="header">
+  <div class="container">
+    <div class="header-inner">
+      <div class="header-title">
+        <h4 class="corner-title">make<br>others<br>happy___</h4>
+      </div>
+      <nav class="nav" id="nav">
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="mywishlist.html" class="nav-link">Wishlist</a>
+        <a href="login.html" class="nav-link">Log in</a>
+        <a href="#" class="nav-link">Sign up</a>
+        <a href="#" class="nav-link logout">Log out</a>
+        <button class="search" id="search" onclick="location.href='searchlist.html'">
+          <img src="img/search1.jpg" alt="" class="icon-search">
+        </button>
+      </nav>
+    </div>
+  </div>
+</header>
+
+<!--Login-->
+
+<div class="form">
+  <div class="container">
+    <form action="https://wa.toad.cz/~xklima/vypisform.php" method="post">
+      <fieldset>
+        <legend class="form-title">Search the list</legend>
+        <h5 class="search-info">All lists are public, you can search the list by name. <br> Just enter a person's name to find their wishlist.</h5>
+        <div class="row">
+          <label for="search-login" class="form-label">Login</label>
+          <input type="text" name="search-login" id="search-login" placeholder="e.g. Amigo2003" class="form-box">
+        </div>
+
+        <input type="submit" value="Search" class="btn btn-form">
+
+      </fieldset>
+    </form>
+  </div>
+</div>
+
+</body>
+</html>
