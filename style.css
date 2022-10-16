@@ -179,6 +179,7 @@ h1, h2, h3, h4, h5, h6{
 }
 
 .footer-block{
+    display: inline-block;
     list-style-type: none;
     text-decoration: none;
     font-family: 'Lato', sans-serif;

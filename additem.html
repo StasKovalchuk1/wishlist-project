@@ -41,18 +41,15 @@
           <input type="text" name="item" id="item" placeholder="e.g. t-shirt" class="form-box">
         </div>
         <div class="row">
-          <label for="additional" class="form-label">Additional (optional)</label>
-          <input type="text" name="additional" id="additional" placeholder="e.g. red one" class="form-box">
+          <label for="count" class="form-label">How much?</label>
+          <input type="number" name="count" id="count" class="form-box" min="0">
         </div>
         <div class="row">
           <label for="date" class="form-label">By what time? (optional)</label>
-          <input type="date" name="date" id="date" placeholder="10.10.2022" class="form-box">
+          <input type="date" name="date" id="date" class="form-box">
         </div>
 
-        <form action="mywishlist.html">
-          <input type="submit" value="Add item" class="btn btn-form">
-        </form>
-
+          <input type="submit" value="Add item" class="btn btn-form" onclick="location.href='mywishlist.html'">
       </fieldset>
     </form>
   </div>
