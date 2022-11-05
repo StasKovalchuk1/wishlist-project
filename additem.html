@@ -4,9 +4,11 @@
   <meta charset="UTF-8">
   <title>WishList</title>
   <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="print.css" media="print">
   <link href="https://fonts.googleapis.com/css2?family=Lato:wght@100;200;300;400;500;700&display=swap" rel="stylesheet">
+  <script src="app.js"></script>
 </head>
-<body>
+<body class="blue-theme">
 
 <!-- Header -->
 <header class="header" id="header">
@@ -34,26 +36,28 @@
 <div class="form">
   <div class="container">
     <form action="https://wa.toad.cz/~xklima/vypisform.php" method="post">
-      <fieldset>
-        <legend class="form-title">Add an item</legend>
-        <div class="row">
-          <label for="item" class="form-label">What would you like?</label>
-          <input type="text" name="item" id="item" placeholder="e.g. t-shirt" class="form-box">
-        </div>
-        <div class="row">
-          <label for="count" class="form-label">How much?</label>
-          <input type="number" name="count" id="count" class="form-box" min="0">
-        </div>
-        <div class="row">
-          <label for="date" class="form-label">By what time? (optional)</label>
-          <input type="date" name="date" id="date" class="form-box">
-        </div>
+      <div class="form-field">
+        <fieldset>
+          <legend class="form-title">Add an item</legend>
+          <div class="row">
+            <label for="item" class="form-label">What would you like?</label>
+            <input type="text" name="item" id="item" placeholder="e.g. t-shirt" class="form-box">
+          </div>
+          <div class="row">
+            <label for="count" class="form-label">How much?</label>
+            <input type="number" name="count" id="count" class="form-box" min="0">
+          </div>
+          <div class="row">
+            <label for="date" class="form-label">By what time? (optional)</label>
+            <input type="date" name="date" id="date" class="form-box">
+          </div>
 
           <input type="submit" value="Add item" class="btn btn-form" onclick="location.href='mywishlist.html'">
-      </fieldset>
+        </fieldset>
+      </div>
     </form>
   </div>
 </div>
-
+<script src="app.js"></script>
 </body>
 </html>

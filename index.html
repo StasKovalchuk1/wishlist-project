@@ -3,14 +3,15 @@
     <head>
         <meta charset = "utf-8">
         <title>Wishlist</title>
-        <link rel="stylesheet" href="style.css">       
+        <link rel="stylesheet" href="style.css">
+        <link rel="stylesheet" href="print.css" media="print">
         <link href="https://fonts.googleapis.com/css2?family=Lato:wght@100;200;300;400;500;700&display=swap" rel="stylesheet">
     </head>
 
-    <body>
+    <body class="blue-theme">
 
         <!-- Header -->
-        <header class="header" id="header">
+        <header class="header blue" id="header">
             <div class="container">
                 <div class="header-inner">
                     <div class="header-title">
@@ -19,19 +20,23 @@
                     <nav class="nav" id="nav">
                         <a href="index.html" class="nav-link">Home</a>
                         <a href="mywishlist.html" class="nav-link">Wishlist</a>
-                        <a href="login.html" class="nav-link">Log in</a>
-                        <a href="signup.html" class="nav-link">Sign up</a>
+                        <a href="login.html" class="nav-link show">Log in</a>
+                        <a href="signup.html" class="nav-link show">Sign up</a>
                         <a href="#" class="nav-link logout">Log out</a>
-                        <button class="search" id="search" onclick="location.href='searchlist.html'">
+                        <button class="search blue" id="search" onclick="location.href='searchlist.html'">
                             <img src="img/search1.jpg" alt="" class="icon-search">
                         </button>
+                        <form class="nav-link themes">
+                            <label><input type="radio" name="theme" value="blue-theme" checked>blue</label>
+                            <label><input type="radio" name="theme" value="pink-theme">pink</label>
+                        </form>
                     </nav>
                 </div>
             </div>
         </header>
 
         <!-- Intro -->
-        <div class="intro">
+        <div class="intro blue">
             <div class="container">
                 <div class="intro-inner">
                     <h1 class="intro-title">The Wish List Maker</h1>
@@ -42,22 +47,22 @@
         </div>
 
         <!-- Reviews -->
-        <div class="reviews">
+        <div class="reviews blue">
             <div class="container">
                 <div class="reviews-inner">
-                    <div class="comment">
+                    <div class="comment blue">
                         <p class="comment-info">Your service helps me and my family. Because
                         of you we always know what to present to each other. And it's very user-friendly
                         interface! We will share it with friends with your link! Thank you </p>
                         <p class="reviewer-name">John Snow</p>
                     </div>
-                    <div class="comment">
+                    <div class="comment blue">
                         <p class="comment-info">Your service helps me and my family. Because
                         of you we always know what to present to each other. And it's very user-friendly
                         interface! We will share it with friends with your link! Thank you </p>
                         <p class="reviewer-name">John Snow</p>
                     </div>
-                    <div class="comment">
+                    <div class="comment blue">
                         <p class="comment-info">Your service helps me and my family. Because
                         of you we always know what to present to each other. And it's very user-friendly
                         interface! We will share it with friends with your link! Thank you </p>
@@ -68,9 +73,9 @@
         </div>
 
         <!-- Footer -->
-        <footer class="footer">
+        <footer class="footer blue">
             <div class="container">
-                <div class="footer-inner">
+                <div class="footer-inner blue">
                     <ul>
                         <li class="footer-block">&copy;Things</li>
                         <li  class="footer-block">
@@ -84,4 +89,5 @@
             </div>
         </footer>
     </body>
+    <script src="app.js"></script>
 </html>

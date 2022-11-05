@@ -4,9 +4,11 @@
   <meta charset="UTF-8">
   <title>Sign up</title>
   <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="print.css" media="print">
   <link href="https://fonts.googleapis.com/css2?family=Lato:wght@100;200;300;400;500;700&display=swap" rel="stylesheet">
+  <script src="app.js"></script>
 </head>
-<body>
+<body class="blue-theme">
 
 <!-- Header -->
 <header class="header" id="header">
@@ -21,7 +23,7 @@
         <a href="login.html" class="nav-link">Log in</a>
         <a href="#" class="nav-link">Sign up</a>
         <a href="#" class="nav-link logout">Log out</a>
-        <button class="search" id="search" onclick="location.href='searchlist.html'">
+        <button class="search blue" id="search" onclick="location.href='searchlist.html'">
           <img src="img/search1.jpg" alt="" class="icon-search">
         </button>
       </nav>
@@ -33,28 +35,33 @@
 
 <div class="form">
   <div class="container">
-    <form action="https://wa.toad.cz/~xklima/vypisform.php" method="post">
-      <fieldset>
-        <legend class="form-title">Register a new account</legend>
-        <div class="row">
-          <label for="login" class="form-label">Login</label>
-          <input type="text" name="login" id="login" class="form-box">
-        </div>
-        <div class="row">
-          <label for="password" class="form-label">Password</label>
-          <input type="password" name="password" id="password" class="form-box">
-        </div>
-        <div class="row">
-          <label for="confirm-password" class="form-label">Confirm password</label>
-          <input type="password" name="connfirm" id="confirm-password" class="form-box">
-        </div>
+    <form action="https://wa.toad.cz/~xklima/vypisform.php" method="post" id="form">
+      <div class="form-field">
+        <fieldset>
+          <legend class="form-title">Register a new account</legend>
+          <div class="row">
+            <label for="login" class="form-label">Login</label>
+            <input type="text" name="login" id="login" class="form-box login">
+          </div>
+          <div class="row">
+            <label for="password" class="form-label">Password</label>
+            <input type="password" name="password" id="password" class="form-box password">
+          </div>
+          <div class="row">
+            <label for="confirm-password" class="form-label">Confirm password</label>
+            <input type="password" name="connfirm" id="confirm-password" class="form-box confirm">
+          </div>
 
-        <input type="submit" value="Register" class="btn btn-form">
+          <input type="submit" value="Register" class="btn btn-form">
 
-      </fieldset>
+        </fieldset>
+      </div>
     </form>
+    <script>
+      init();
+    </script>
   </div>
 </div>
-
+<script src="app.js"></script>
 </body>
 </html>
