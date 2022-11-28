@@ -1,15 +1,8 @@
-document.querySelector('.themes').addEventListener('change',
-    (event) => {
-        if (event.target.nodeName === 'INPUT') {
-            document.documentElement.classList.remove('blue-theme', 'pink-theme');
-            document.documentElement.classList.add(event.target.value);
-
-        }
-    });
-
 function init(){
     const formElement = document.querySelector("#form");
-    formElement.addEventListener("submit", validate);
+    if(formElement){
+        formElement.addEventListener("submit", validate);
+    }
 }
 
 function validate(event){
@@ -18,15 +11,13 @@ function validate(event){
     var confirm = document.querySelector(".confirm").value;
     if (name.length < 5) {
         event.preventDefault();
-        alert("Name min. 5 znaku");
+        alert("Jmeno min. 5 znaku!");
     }
     else if (password.length < 8 || password!=confirm){
         event.preventDefault();
-        alert("Wrong password");
+        alert("Something wrong with your password!");
     }
 }
 
-function setCookie(){
-    document.cookie = document.getElementsByClassName()
-}
+
 
