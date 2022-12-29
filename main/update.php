@@ -1,4 +1,8 @@
 <?php
+/*
+ * Pomocí dotazu sql zkontrolujeme jedinečnost položky, pokud je taková položka již v seznamu,
+ * zobrazí se chybová zpráva, pokud ne, pak po ověření správnosti tokenu CSRF se data přidají do databáze.
+ */
 session_start();
 require_once "connect.php";
 $id = $_POST['id'];

@@ -1,11 +1,11 @@
 <?php
-    session_start();
-    /*
-      Pomocí funkce clean() ze souboru main/validation.php je pole s názvem položky vymazáno ze značek html a php,
-      speciální znaky jsou převedeny na entity HTML. Pomocí dotazu sql zkontrolujeme jedinečnost položky,
-      pokud je taková položka již v seznamu, zobrazí se chybová zpráva, pokud ne,
-      pak po ověření správnosti tokenu CSRF se data přidají do databáze.
-     */
+/*
+  Pomocí funkce clean() ze souboru main/validation.php je pole s názvem položky vymazáno ze značek html a php,
+  speciální znaky jsou převedeny na entity HTML. Pomocí dotazu sql zkontrolujeme jedinečnost položky,
+  pokud je taková položka již v seznamu, zobrazí se chybová zpráva, pokud ne,
+  pak po ověření správnosti tokenu CSRF se data přidají do databáze.
+ */
+session_start();
     require_once "connect.php";
     require_once "validation.php";
 

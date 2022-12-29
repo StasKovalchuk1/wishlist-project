@@ -1,4 +1,5 @@
 <?php
+// Vyhledání uživatele
 
 session_start();
 require_once 'connect.php';

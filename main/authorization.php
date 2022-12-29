@@ -1,14 +1,14 @@
 <?php
-    session_start();
-    /*
-      Pomocí funkce clean() ze souboru je pole s uživatelským jménem
-      vymazáno ze značek html a php, speciální znaky jsou převedeny na entity HTML.
-      Nejprve se zkontroluje, zda je uživatel se zadaným uživatelským jménem v databázi,
-      poté zkontrolujte heslo pomocí funkce password_verify(), která zkontroluje, zda heslo odpovídá hash v databázi.
-      Pokud jsou všechny kontroly úspěšné, uživatel bude přesměrován na stránku se seznamem přání,
-      jeho uživatelské jméno a id jsou uloženy v Cookies a $_SESSION[„session“] nastavuje hodnotu „active“.
-      Jinak se zobrazí chybová zpráva.
-     */
+/*
+  Pomocí funkce clean() ze souboru je pole s uživatelským jménem
+  vymazáno ze značek html a php, speciální znaky jsou převedeny na entity HTML.
+  Nejprve se zkontroluje, zda je uživatel se zadaným uživatelským jménem v databázi,
+  poté zkontrolujte heslo pomocí funkce password_verify(), která zkontroluje, zda heslo odpovídá hash v databázi.
+  Pokud jsou všechny kontroly úspěšné, uživatel bude přesměrován na stránku se seznamem přání,
+  jeho uživatelské jméno a id jsou uloženy v Cookies a $_SESSION[„session“] nastavuje hodnotu „active“.
+  Jinak se zobrazí chybová zpráva.
+ */
+session_start();
     require_once "connect.php";
     require_once "validation.php";
     $username = $_POST['username'];

@@ -6,7 +6,8 @@
        pomocí funkce password _hash(). Pokud uživatel při registraci zadal již existující jméno,
        bude předán zpět na registrační stránku a požádán o výběr jiného jména. Pokud jsou všechny kontroly úspěšné,
        uživatel bude přidán do databáze, jeho uživatelské jméno a id jsou uloženy v Cookies
-       a $_SESSION[„session“] nastavuje hodnotu „active“. Jinak se zobrazí chybová zpráva.*/
+       a $_SESSION[„session“] nastavuje hodnotu „active“. Jinak se zobrazí chybová zpráva.
+    */
     require_once 'connect.php';
     require_once "validation.php";
     $username = $_POST['username'];
