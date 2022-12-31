@@ -17,12 +17,12 @@ function validate(event){
     if (password.length < 8){
         event.preventDefault();
         let y = document.getElementById('err2');
-        y.innerHTML = "<p>Min 8 znaku!</p>";
+        y.innerHTML = "<p>Minimum 8 letters</p>";
     }
     if (password!=confirm){
         event.preventDefault();
         let z = document.getElementById('err3');
-        z.innerHTML = "<p>Spatne opakovane!</p>";
+        z.innerHTML = "<p>Incorrectly repeated password</p>";
     }
 }
 

@@ -11,6 +11,7 @@ session_start();
 
     $userID = $_COOKIE['userID'];
 
+    
     $wish = $_POST['item'];
     $wish = clean($wish);
     $count = $_POST['count'];

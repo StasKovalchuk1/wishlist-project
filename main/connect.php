@@ -1,5 +1,7 @@
 <?php
-    $connect = mysqli_connect('localhost', 'kovalst1', 'webove aplikace', 'kovalst1');
+// připojení k databázi
+
+    $connect = mysqli_connect('localhost', 'root', 'root', 'wishlist_bd');
     if (!$connect){
-        die("ERROR");
+        die("Failed to connect to the database");
     }

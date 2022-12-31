@@ -22,7 +22,7 @@
             header("Location: ../signup.php?name=$username");
         }
         if ($confirm <> $password){
-            $_SESSION['confirm-password'] = 'Incorrectly repeated the password';
+            $_SESSION['confirm-password'] = 'Incorrectly repeated password';
             header("Location: ../signup.php?name=$username");
         }
 
