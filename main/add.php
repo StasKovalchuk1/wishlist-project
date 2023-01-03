@@ -11,7 +11,6 @@ session_start();
 
     $userID = $_COOKIE['userID'];
 
-
     $wish = $_POST['item'];
     $wish = clean($wish);
     $count = $_POST['count'];
@@ -26,9 +25,12 @@ if (($token == $_SESSION['token']) and isset($_SESSION['token'])){
     // musel jsem rozdělit dotazy s prázdnou hodnotou data a neprázdnou
     if ($_POST['date'] == NULL){
         // ověření délky pole s přáním a hodnotou množství
-        if (strlen($wish) > 100 or $count < 1){
+        if (strlen($wish) > 100 or $count < 1 or empty($wish)){
             if (strlen($wish) > 100){
                 $_SESSION['wish-message'] = 'Your wish is too long';
+            }
+            if (empty($wish)){
+                $_SESSION['wish-message'] = 'This field is required';
             }
             if ($count < 1){
                 $_SESSION['count-message'] = 'Minimum count 1';
@@ -53,9 +55,12 @@ if (($token == $_SESSION['token']) and isset($_SESSION['token'])){
     else{
         $date = $_POST['date'];
         // ověření délky pole s přáním a hodnotou množství
-        if (strlen($wish) > 100 or strlen($count) < 1){
+        if (strlen($wish) > 100 or $count < 1 or empty($wish)){
             if (strlen($wish) > 100){
                 $_SESSION['wish-message'] = 'Your wish is too long';
+            }
+            if (empty($wish)){
+                $_SESSION['wish-message'] = 'This field is required';
             }
             if ($count < 1){
                 $_SESSION['count-message'] = 'Minimum count 1';
