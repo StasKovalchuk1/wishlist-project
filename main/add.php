@@ -14,7 +14,12 @@ session_start();
     $wish = $_POST['item'];
     $wish = clean($wish);
     $count = $_POST['count'];
-    $token = $_POST['token'];
+    if (isset($_POST['token'])){
+        $token = $_POST['token'];
+    } else {
+        $_SESSION['message'] = 'Error: CSRF attack!';
+        header("Location: ../additem.php");
+    }
     if (isset($_POST['checkbox'])){
         $check = 'on';
     } else {

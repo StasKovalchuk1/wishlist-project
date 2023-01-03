@@ -24,10 +24,18 @@
         }
     }
     else{
-        $id = $_GET['ID'];
-        $wish = $_GET['wish'];
-        $count = $_GET['count'];
-        $date = $_GET['date'];
+        if (isset($_GET['ID'])){
+            $id = $_GET['ID'];
+        }
+        if (isset($_GET['wish'])){
+            $wish = $_GET['wish'];
+        }
+        if (isset($_GET['count'])){
+            $count = $_GET['count'];
+        }
+        if (isset($_GET['date'])){
+            $date = $_GET['date'];
+        }
     }
     ?>
 

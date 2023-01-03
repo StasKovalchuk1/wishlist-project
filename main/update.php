@@ -45,13 +45,18 @@ foreach ($result as $row){
     }
 }
 
-if (($token != $_SESSION['token']) or !(isset($_SESSION['token']))){
+if (($token <> $_SESSION['token']) or !(isset($_SESSION['token']))){
     $_SESSION['message'] = 'Error: CSRF attack!';
-    header("Location: ../update.php");
+    header("Location: ../update.php?id=$id&wish=$wish&count=$count&date=$date");
+    exit();
 }
 
 if ($date == null){
     mysqli_query($connect, "UPDATE `wishes` SET `wish` = '$wish', `count` = '$count' WHERE `wishes`.`id` = '$id'");
+    $result = mysqli_query($connect, "SELECT `date` FROM `wishes` WHERE `wishes`.`id` = '$id'");
+    if ($result){
+        mysqli_query($connect, "UPDATE `wishes` SET `date` = NULL WHERE `wishes`.`id` = '$id'");
+    }
 }
 else{
     mysqli_query($connect, "UPDATE `wishes` SET `wish` = '$wish', `count` = '$count', `date` = '$date' WHERE `wishes`.`id` = '$id'");
