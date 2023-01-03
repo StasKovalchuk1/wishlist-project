@@ -15,6 +15,7 @@ if (isset($_GET['name'])){
     <link rel="stylesheet" href="print.css" media="print">
     <link href="https://fonts.googleapis.com/css2?family=Lato:wght@100;200;300;400;500;700&display=swap" rel="stylesheet">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="app.js"></script>
 </head>
 <?php
 if (isset($_COOKIE['theme'])){
@@ -68,20 +69,36 @@ else{
 
 <div class="form">
     <div class="container">
-        <form action="main/authorization.php" method="post">
+        <form action="main/authorization.php" method="post" id="form2">
             <div class="form-field">
                 <fieldset>
                     <legend class="form-title">Log in to your account</legend>
                     <div class="row">
-                        <label for="login" class="form-label">Username</label>
-                        <input type="text" name="username" id="login" class="form-box pattern" required value="<?= isset($username) ? $username : ''?>" pattern="\w{5,255}">
+                        <label for="login" class="form-label">Username (5-20 characters)</label>
+                        <input type="text" name="username" id="login" class="form-box pattern login" required value="<?= isset($username) ? $username : ''?>" pattern="\w{5,20}">
+                        <p class="err" id="err1"></p>
+                        <?php
+                        //  chybová zpráva
+                        if (isset($_SESSION['username-message'])){
+                            echo '<p class="err"> ' . $_SESSION['username-message'] . '</p>';
+                        }
+                        unset($_SESSION['username-message']);
+                        ?>
                     </div>
                     <div class="row">
-                        <label for="password" class="form-label">Password</label>
-                        <input type="password" name="password" id="password" class="form-box pattern" required pattern="\w{8,255}">
+                        <label for="password" class="form-label">Password (8-20 characters)</label>
+                        <input type="password" name="password" id="password" class="form-box pattern password" required pattern="\w{8,20}">
+                        <p class="err" id="err2"></p>
+                        <?php
+                        //  chybová zpráva
+                        if (isset($_SESSION['password'])){
+                            echo '<p class="err"> ' . $_SESSION['password'] . '</p>';
+                        }
+                        unset($_SESSION['password']);
+                        ?>
                     </div>
                     <?php
-                    //  chybová zpráva
+                    //  chybová zpráva - nesprávný login nebo heslo
                     if (isset($_SESSION['message'])){
                         echo '<p class="err"> ' . $_SESSION['message'] . '</p>';
                     }
@@ -94,9 +111,11 @@ else{
             </div>
 
         </form>
+        <script>
+            init();
+        </script>
     </div>
 </div>
-<script src="app.js"></script>
 <script src="script2.js"></script>
 </body>
 </html>

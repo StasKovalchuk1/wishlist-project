@@ -76,7 +76,6 @@ else{
 
 <div class="list-title">
     <?php
-
     if (isset($_COOKIE['search-name'])){
         echo '<h2>Search for ' . $_COOKIE['search-name'] . '&apos;s  Wishlist</h2>';
     }
@@ -88,6 +87,8 @@ else{
     ?>
 </div>
 <?php
+/* pokud se uživatel, který není přihlášen, pokusí zarezervovat dárek,
+     zobrazí se zpráva s odkazem na přihlášení */
 if (isset($_SESSION['book-message'])){
     echo '<p class="message"> ' . $_SESSION['book-message'] . ' <a href="login.php">here</a></p>';
 }
@@ -104,6 +105,7 @@ unset($_SESSION['book-message']);
                     <th>Reserved by</th>
                 </tr>
                 <?php
+                if (isset($_COOKIE['search-name'])){
                 $arr = mysqli_query($connect, "SELECT `id` FROM `users` WHERE `name` = '".$_COOKIE['search-name']."'");
                 $arr = mysqli_fetch_all($arr);
                 foreach ($arr as $row){
@@ -119,9 +121,10 @@ unset($_SESSION['book-message']);
                         <td><?= $row[1]?></td>
                         <td><?= $row[2]?></td>
                         <td><?= $row[3]?></td>
-                        <td><?php // vyplnění sloupce tabulky “Reserved by“
+                        <td><?php
+                            // vyplnění sloupce tabulky “Reserved by“
                             if ($reserved_by_id== NULL){
-                                echo '<a id="reserveButton" href="main/book_gift.php?id='.$reserved_wish_id.'">Click to reserve</a>';
+                                echo '<a id="reserveButton" href="main/book_gift.php?page='.$page.'&id='.$reserved_wish_id.'">Click to reserve</a>';
 
                             }
                             else{
@@ -132,7 +135,8 @@ unset($_SESSION['book-message']);
                                 }
                                 if($reserved_by_id == $_COOKIE['userID'] and isset($_SESSION['session'])) {
                                     if ($_SESSION['session'] == 'active') {
-                                        echo '<a href="main/cancelReservation.php?id='.$reserved_wish_id.'">' . $reserved_by . '</a>';
+                                        // odkaz na zrušení rezervace
+                                        echo '<a href="main/cancelReservation.php?page='.$page.'&id='.$reserved_wish_id.'">' . $reserved_by . '</a>';
                                     }
                                     else{
                                         echo $reserved_by;
@@ -147,20 +151,28 @@ unset($_SESSION['book-message']);
                     </tr>
                     <?php
                 }
+                }
                 ?>
             </table>
             <?php
             // strankovani
             //výstup 5 řádků seznamu
-            $result = mysqli_query($connect, "SELECT * FROM `wishes` WHERE `user_id` = '$id'");
-            $total_records = mysqli_num_rows($result);
-            $total_pages = ceil($total_records/$num_per_page);
-            echo "<div class='pagination'>";
-            // číslování stránek ve formě odkazů
-            for($i=1;$i<=$total_pages;$i++){
-                echo "<a href='searchPage.php?page=".$i."'>".$i." </a>";
+            if (isset($id)){
+                $result = mysqli_query($connect, "SELECT * FROM `wishes` WHERE `user_id` = '$id'");
+                $total_records = mysqli_num_rows($result);
+                $total_pages = ceil($total_records/$num_per_page);
+                echo "<div class='pagination'>";
+                // číslování stránek ve formě odkazů
+                for($i=1;$i<=$total_pages;$i++){
+                    if ($i == $page){
+                        echo "<a class='page' href='searchPage.php?page=".$i."'>".$i." </a>";
+                    }
+                    else{
+                        echo "<a class='pagenumber' href='searchPage.php?page=".$i."'>".$i." </a>";
+                    }
+                }
+                echo "</div>";
             }
-            echo "</div>";
             ?>
         </div>
     </div>

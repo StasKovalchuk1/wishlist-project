@@ -40,7 +40,7 @@ th, td{
 }
 
 th{
-    width: 30%;
+    width: 28%;
 
 }
 
@@ -50,6 +50,10 @@ table {
     width: 100%;
     font-size: 16px;
     border-collapse: collapse;
+}
+
+.edit, .delete{
+    height: 16px;
 }
 
 @media screen and (max-width: 1180px){

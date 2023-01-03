@@ -192,16 +192,12 @@ input{
     padding-right: 0;
 }
 
-/*.logout{*/
-/*    display: none;*/
-/*}*/
-
-/*.logout.show{*/
-/*    display: flex;*/
-/*}*/
-
 .search{
     border: none;
+}
+
+.search-btn{
+    padding-top: 7px;
 }
 
 .icon-search{
@@ -384,6 +380,15 @@ table {
     text-align: center;
 }
 
+.pagenumber{
+    text-decoration: none;
+    padding: 0 5px 0;
+}
+
+.page{
+    padding: 0 5px 0;
+}
+
 /*------------Form----------*/
 
 .form{
@@ -442,6 +447,10 @@ fieldset{
 
 .message {
     padding-left: 115px;
+}
+
+.click{
+    margin-right: auto;
 }
 
 /*      Media       */

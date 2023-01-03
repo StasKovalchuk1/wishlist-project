@@ -82,19 +82,18 @@ session_start();
                         <p class="comment-info">Your service helps me and my family. Because
                         of you we always know what to present to each other. And it's very user-friendly
                         interface! We will share it with friends with your link! Thank you </p>
-                        <p class="reviewer-name">John Snow</p>
+                        <p class="reviewer-name">John S.</p>
                     </div>
                     <div class="comment">
-                        <p class="comment-info">Your service helps me and my family. Because
-                        of you we always know what to present to each other. And it's very user-friendly
-                        interface! We will share it with friends with your link! Thank you </p>
-                        <p class="reviewer-name">John Snow</p>
+                        <p class="comment-info">I have really enjoyed using Wishlist. It is a nice way to show people are appreciated.
+                            There is nothing worse than getting a gift you don't like, or a gift card for a store you would never shop at!
+                        </p>
+                        <p class="reviewer-name">Kevin M.</p>
                     </div>
                     <div class="comment">
-                        <p class="comment-info">Your service helps me and my family. Because
-                        of you we always know what to present to each other. And it's very user-friendly
-                        interface! We will share it with friends with your link! Thank you </p>
-                        <p class="reviewer-name">John Snow</p>
+                        <p class="comment-info">I have absolutely loved working with Wishlist! I would recommend it to anyone. Thank you for what you're doing!!! Keep up the good work!
+                        </p>
+                        <p class="reviewer-name">Rachel H.</p>
                     </div>
                 </div>
             </div>

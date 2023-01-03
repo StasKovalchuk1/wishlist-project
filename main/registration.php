@@ -14,11 +14,11 @@
     $username = clean($username);
     $password = $_POST['password'];
     $confirm = $_POST['confirm'];
-
+    // validace vstupních polí
     if ((strlen($username) < 5) or ($confirm <> $password) or (strlen($_POST['password']) < 8)){
         //  chybová zpráva
-        if (strlen($username) < 5){
-            $_SESSION['username-message'] = 'Minimum 5 letters';
+        if (strlen($username) < 5 or strlen($username) > 20){
+            $_SESSION['username-message'] = 'Length is from 5 to 20 characters';
             header("Location: ../signup.php?name=$username");
         }
         if ($confirm <> $password){
@@ -26,8 +26,8 @@
             header("Location: ../signup.php?name=$username");
         }
 
-        if (strlen($_POST['password']) < 8){
-            $_SESSION['password'] = 'Minimum 8 letters';
+        if (strlen($_POST['password']) < 8 or strlen($_POST['password']) > 20){
+            $_SESSION['password'] = 'Length is from 8 to 20 characters';
             header("Location: ../signup.php?name=$username");
         }
     } else{

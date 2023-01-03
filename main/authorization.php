@@ -15,6 +15,19 @@ session_start();
     $username = clean($username);
     $password = $_POST['password'];
 
+
+if ((strlen($username) < 5) or (strlen($_POST['password']) < 8)){
+    //  chybová zpráva
+    if (strlen($username) < 5 or strlen($username) > 20){
+        $_SESSION['username-message'] = 'Length is from 5 to 20 characters';
+        header("Location: ../login.php?name=$username");
+    }
+
+    if (strlen($_POST['password']) < 8 or strlen($_POST['password']) > 20){
+        $_SESSION['password'] = 'Length is from 8 to 20 characters';
+        header("Location: ../login.php?name=$username");
+    }
+} else{
     $check_user = mysqli_query($connect, "SELECT `id`, `name`,`password` FROM `users` WHERE `name` = '$username'");
     // zkontroluje, zda je uživatel se zadaným uživatelským jménem v databázi
     if (mysqli_num_rows($check_user) > 0){
@@ -37,3 +50,4 @@ session_start();
         $_SESSION['message'] = 'Wrong login or password';
         header("Location: ../login.php?name=$username");
     }
+}

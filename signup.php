@@ -74,8 +74,8 @@ else{
         <fieldset>
           <legend class="form-title">Register a new account</legend>
           <div class="row" id="row1">
-            <label for="login" class="form-label">Username</label>
-            <input type="text" name="username" id="login" class="form-box login pattern" required value="<?= isset($username) ? $username : ''?>" pattern="\w{5,255}">
+            <label for="login" class="form-label">Username (5-20 characters)</label>
+            <input type="text" name="username" id="login" class="form-box login pattern" required value="<?= isset($username) ? $username : ''?>" pattern="\w{5,20}">
               <p class="err" id="err1"></p>
               <?php
               //  chybová zpráva
@@ -90,8 +90,8 @@ else{
               ?>
           </div>
           <div class="row" id="row2">
-            <label for="password" class="form-label">Password</label>
-            <input type="password" name="password" id="password" class="form-box password pattern" required pattern="\w{8,255}">
+            <label for="password" class="form-label">Password (8-20 characters)</label>
+            <input type="password" name="password" id="password" class="form-box password pattern" required pattern="\w{8,20}">
               <p class="err" id="err2"></p>
               <?php
               //  chybová zpráva
@@ -103,7 +103,7 @@ else{
           </div>
           <div class="row">
             <label for="confirm-password" class="form-label">Confirm password</label>
-            <input type="password" name="confirm" id="confirm-password" class="form-box confirm pattern" required pattern="\w{8,255}">
+            <input type="password" name="confirm" id="confirm-password" class="form-box confirm pattern" required pattern="\w{8,20}">
               <p class="err" id="err3"></p>
               <?php
               //  chybová zpráva

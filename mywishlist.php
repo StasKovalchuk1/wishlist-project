@@ -18,6 +18,12 @@
 
     if (isset($_GET['page'])){
         $page = $_GET['page'];
+        $result = mysqli_query($connect, "SELECT * FROM `wishes` WHERE `user_id` = '" . $_COOKIE['userID'] . "'");
+        $total_records = mysqli_num_rows($result);
+        $total_pages = ceil($total_records/$num_per_page);
+        if ($page > $total_pages){
+            $page = $page - 1;
+        }
     }
     else{
         $page = 1;
@@ -122,12 +128,12 @@
                      <td><?= $row[2]?></td>
                      <td><?= $row[3]?></td>
                      <td class="correct">
-                         <form action="update.php?id=<?= $row[0]?>" method="post">
+                         <form action="update.php?id=<?= $row[0]?>&page=<?= $page ?>" method="post">
                              <button class="search"><img src="img/edit.png" alt="" class="edit"></button>
                          </form>
                      </td>
                      <td class="correct">
-                         <form action="main/delete.php?id=<?= $row[0]?>" method="post">
+                         <form action="main/delete.php?id=<?= $row[0] ?>&page=<?= $page ?>" method="post">
                              <button class="search"><img src="img/delete.png" alt="" class="delete"></button>
                              <input type="hidden" name="token" value="<?= $_SESSION['token'] ?? '' ?>">
                          </form>
@@ -146,7 +152,12 @@
                     echo "<div class='pagination'>";
                     // číslování stránek ve formě odkazů
                     for($i=1;$i<=$total_pages;$i++){
-                        echo "<a href='mywishlist.php?page=".$i."'>".$i." </a>";
+                        if ($i == $page){
+                            echo "<a class='page' href='mywishlist.php?page=".$i."'>".$i." </a>";
+                        }
+                        else{
+                            echo "<a class='pagenumber' href='mywishlist.php?page=".$i."'>".$i." </a>";
+                        }
                     }
                     echo "</div>";
                 ?>

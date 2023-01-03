@@ -62,14 +62,15 @@ else{
 
 <div class="form">
   <div class="container">
-    <form action="main/search.php" method="post">
+    <form action="main/search.php" method="post" id="form4">
       <div class="form-field">
         <fieldset>
           <legend class="form-title">Search the list</legend>
           <h5 class="search-info">All lists are public, you can search the list by name. <br> Just enter a person's name to find their wishlist.</h5>
           <div class="row">
             <label for="search-login" class="form-label">Username</label>
-            <input type="text" name="search-login" id="search-login" placeholder="e.g. Amigo2003" class="form-box" value="<?= isset($_GET['name']) ? $_GET['name'] : ''?>">
+            <input type="text" name="search-login" id="search-login" placeholder="e.g. Amigo2003" class="form-box" value="<?= isset($_GET['name']) ? $_GET['name'] : ''?>" required>
+              <p class="err" id="err1"></p>
           </div>
 
             <?php
@@ -85,6 +86,9 @@ else{
         </fieldset>
       </div>
     </form>
+      <script>
+          init();
+      </script>
   </div>
 </div>
 <script src="script2.js"></script>

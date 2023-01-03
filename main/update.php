@@ -4,26 +4,47 @@
  * zobrazí se chybová zpráva, pokud ne, pak po ověření správnosti tokenu CSRF se data přidají do databáze.
  */
 session_start();
+require_once "validation.php";
 require_once "connect.php";
 $id = $_POST['id'];
-$wish = $_POST['item'];
+$wish = clean($_POST['item']);
 $count = $_POST['count'];
 $date = $_POST['date'];
 $token = $_POST['token'];
+$page = $_GET['page'];
 
+// ověření délky pole s přáním a hodnotou množství
+if (strlen($wish) > 100 or $count < 1){
+    if (strlen($wish) > 100){
+        $_SESSION['wish-message'] = 'Your wish is too long';
+    }
+    if ($count < 1){
+        $_SESSION['count-message'] = 'Minimum count 1';
+    }
+    header("Location: ../update.php?id=$id&wish=$wish&count=$count&date=$date&page=$page");
+    exit();
+}
+
+$list = mysqli_query($connect, "SELECT `wish` FROM `wishes` WHERE `id` = '$id'");
+$list = mysqli_fetch_all($list);
+foreach ($list as $row){
+    $defaultWish = $row[0]; // přání, které chceme aktualizovat
+}
+
+// odolnost proti dvojímu odeslání stejné položky
 $result = mysqli_query($connect, "SELECT `wish` FROM `wishes` WHERE `user_id` = '" . $_COOKIE['userID'] . "'");
 $result = mysqli_fetch_all($result);
-// odolnost proti dvojímu odeslání stejné položky
 foreach ($result as $row){
-    if ($row[0] == $wish){
+    if ($row[0] == $wish and $wish <> $defaultWish){
         $_SESSION['message'] = ucfirst($wish) . ' is already on your wishlist!';
-        header("Location: ../update.php?id=$id");
+        header("Location: ../update.php?ID=$id&wish=$wish&count=$count&date=$date&page=$page");
         exit();
     }
 }
 
 if (($token != $_SESSION['token']) or !(isset($_SESSION['token']))){
-    die("Failed to validate CSRF token");
+    $_SESSION['message'] = 'Error: CSRF attack!';
+    header("Location: ../update.php");
 }
 
 if ($date == null){
@@ -33,5 +54,5 @@ else{
     mysqli_query($connect, "UPDATE `wishes` SET `wish` = '$wish', `count` = '$count', `date` = '$date' WHERE `wishes`.`id` = '$id'");
 }
 
-header("Location: ../mywishlist.php");
+header("Location: ../mywishlist.php?&page=$page");
 ?>
