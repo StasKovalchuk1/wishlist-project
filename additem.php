@@ -1,6 +1,16 @@
 <?php
 session_start();
 $_SESSION['token'] = bin2hex(random_bytes(35));
+
+if (isset($_SESSION['session'])){     //kontrola, zda je uživatel přihlášen
+    if ($_SESSION['session'] == 'inactive'){
+        header("Location: login.php");
+    }
+}
+else{
+    header("Location: login.php");
+}
+
 if (isset($_GET['wish'])){
     $wish = $_GET['wish'];
 }if (isset($_GET['count'])){
