@@ -15,7 +15,7 @@
     $password = $_POST['password'];
     $confirm = $_POST['confirm'];
     // validace vstupních polí
-    if ((strlen($username) < 5) or ($confirm <> $password) or (strlen($_POST['password']) < 8)){
+    if ((strlen($username) < 5) or ($confirm <> $password) or (strlen($_POST['password']) < 8) or strlen($username) > 20 or strlen($_POST['password']) > 20){
         //  chybová zpráva
         if (strlen($username) < 5 or strlen($username) > 20){
             $_SESSION['username-message'] = 'Length is from 5 to 20 characters';

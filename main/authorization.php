@@ -16,7 +16,7 @@ session_start();
     $password = $_POST['password'];
 
 
-if ((strlen($username) < 5) or (strlen($_POST['password']) < 8) or strlen($_POST['password']) > 20){
+if (strlen($username) < 5 or strlen($password) < 8 or strlen($username) > 20 or strlen($password) > 20){
     //  chybová zpráva
     if (strlen($username) < 5 or strlen($username) > 20){
         $_SESSION['username-message'] = 'Length is from 5 to 20 characters';
