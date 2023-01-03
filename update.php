@@ -41,6 +41,7 @@
         <title>Update your wish</title>
         <link rel="stylesheet" href="style.css">
         <link rel="stylesheet" href="print.css" media="print">
+        <link href="https://fonts.googleapis.com/css2?family=Lato:wght@100;200;300;400;500;700&display=swap" rel="stylesheet">
         <script src="app.js"></script>
     </head>
     <body>
