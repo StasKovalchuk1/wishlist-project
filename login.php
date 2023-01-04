@@ -69,7 +69,7 @@ else{
 
 <div class="form">
     <div class="container">
-        <form action="main/authorization.php" method="post" id="form2">
+        <form action="main/authentification.php" method="post" id="form2">
             <div class="form-field">
                 <fieldset>
                     <legend class="form-title">Log in to your account</legend>
