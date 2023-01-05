@@ -133,7 +133,7 @@ unset($_SESSION['book-message']);
                                 foreach ($list as $row){
                                     $reserved_by = $row[0];
                                 }
-                                if(isset($_SESSION['userID']) and isset($_SESSION['session'])) {
+                                if(isset($_COOKIE['userID']) and isset($_SESSION['session'])) {
                                     if ($_SESSION['session'] == 'active' and $reserved_by_id == $_COOKIE['userID']) {
                                         // odkaz na zrušení rezervace
                                         echo '<a href="main/cancelReservation.php?page='.$page.'&id='.$reserved_wish_id.'">' . $reserved_by . '</a>';
