@@ -121,6 +121,7 @@
                     <?php
                     if (isset($_COOKIE['userID'])){
                         $result = mysqli_query($connect, "SELECT `id`, `wish`, `count`, `date` FROM `wishes` WHERE `user_id` = '" . $_COOKIE['userID'] . "' LIMIT $start_from ,$num_per_page");
+                        if ($result){
                         $result = mysqli_fetch_all($result);
                         foreach ($result as $row){
                     ?>
@@ -142,7 +143,7 @@
                     </tr>
                     <?php
                         }
-
+                        }
                     ?>
                 </table>
 
