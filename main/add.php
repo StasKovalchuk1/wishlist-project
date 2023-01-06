@@ -21,9 +21,9 @@ session_start();
         header("Location: ../additem.php");
     }
     if (isset($_POST['checkbox'])){
-        $check = 'on';
+        $check = $_POST['checkbox'];
     } else {
-        $check = 'off';
+        $check = '';
     }
 
 if (($token == $_SESSION['token']) and isset($_SESSION['token'])){

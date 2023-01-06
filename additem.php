@@ -25,9 +25,6 @@ if (isset($_GET['wish'])){
 }if (isset($_GET['date'])){
     $date = $_GET['date'];
 }
-if (isset($_GET['checkbox'])){
-    $check = $_GET['checkbox'];
-}
 
 ?>
 <!DOCTYPE html>
@@ -130,16 +127,12 @@ else{
             <div class="row">
                 <label for="checkbox" class="form-label">Click if you are cool! (optional)</label>
                 <?php
-                    if (isset($check)){
-                        if ($check == 'on'){
-                            echo '<input type="checkbox" name="checkbox" id="checkbox" class="click" checked>';
-                        } else{
-                            echo '<input type="checkbox" name="checkbox" id="checkbox" class="click">';
-                        }
-                    } else{
-                        echo '<input type="checkbox" name="checkbox" id="checkbox" class="click">';
-                    }
-
+                if (isset($_GET['checkbox']) and $_GET['checkbox'] != ""){
+                    echo '<input type="checkbox" name="checkbox" id="checkbox" class="click" checked>';
+                }
+                else {
+                    echo '<input type="checkbox" name="checkbox" id="checkbox" class="click">';
+                }
                 ?>
             </div>
 
