@@ -14,15 +14,15 @@ $token = $_POST['token'];
 $page = $_GET['page'];
 
 // ověření délky pole s přáním a hodnotou množství
-if (strlen($wish) > 100 or $count < 1 or empty($wish)){
+if (strlen($wish) > 100 or $count < 1 or empty($wish) or strlen($_POST['count']) > 9){
     if (strlen($wish) > 100){
         $_SESSION['wish-message'] = 'Your wish is too long';
     }
     if (empty($wish)){
         $_SESSION['wish-message'] = 'This field is required';
     }
-    if ($count < 1){
-        $_SESSION['count-message'] = 'Minimum count 1';
+    if ($count < 1 or strlen($_POST['count']) > 9){
+        $_SESSION['count-message'] = 'The allowed number is from 1 to 99999999';
     }
     header("Location: ../update.php?id=$id&wish=$wish&count=$count&date=$date&page=$page");
     exit();

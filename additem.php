@@ -2,6 +2,13 @@
 session_start();
 $_SESSION['token'] = bin2hex(random_bytes(35));
 
+/* pokud jsou cookie s id vyřazeny, session uživatele skončí
+    a bude přesměrován na přihlašovací stránku */
+if (!isset($_COOKIE['userID'])){
+    header("Location: main/destroySession.php");
+    exit();
+}
+
 if (isset($_SESSION['session'])){     //kontrola, zda je uživatel přihlášen
     if ($_SESSION['session'] == 'inactive'){
         header("Location: login.php");

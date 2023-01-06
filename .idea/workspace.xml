@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="220d7b7e-bdda-4992-934d-d2701767b0ea" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/additem.html" beforeDir="false" afterPath="$PROJECT_DIR$/additem.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/login.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mywishlist.html" beforeDir="false" afterPath="$PROJECT_DIR$/mywishlist.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/searchlist.html" beforeDir="false" afterPath="$PROJECT_DIR$/searchlist.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/signup.html" beforeDir="false" afterPath="$PROJECT_DIR$/signup.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/style.css" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ComposerSettings">
+    <execution />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="CSS File" />
+        <option value="JavaScript File" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectId" id="2GDlCUTsLiL6mTPHW7HSByGBZaw" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/stanislavkovalcuk/GitHub/wishlist-project&quot;,
+    &quot;list.type.of.created.stylesheet&quot;: &quot;CSS&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  }
+}</component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/main" />
+      <recent name="$PROJECT_DIR$" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration name="index.html" type="JavascriptDebugType" temporary="true" nameIsGenerated="true" uri="http://localhost:63343/wishlist-project/index.html" useBuiltInWebServerPort="true">
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="JavaScript Debug.index.html" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="220d7b7e-bdda-4992-934d-d2701767b0ea" name="Changes" comment="" />
+      <created>1665930907176</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1665930907176</updated>
+      <workItem from="1665930908276" duration="184000" />
+      <workItem from="1665931096435" duration="735000" />
+      <workItem from="1666008699075" duration="12791000" />
+      <workItem from="1666257719209" duration="724000" />
+      <workItem from="1666775467244" duration="2988000" />
+      <workItem from="1667485796148" duration="1382000" />
+      <workItem from="1667499644341" duration="109000" />
+      <workItem from="1667499769194" duration="1028000" />
+      <workItem from="1667681365642" duration="1228000" />
+      <workItem from="1667749297682" duration="1468000" />
+      <workItem from="1667825764571" duration="26745000" />
+      <workItem from="1668020984547" duration="797000" />
+      <workItem from="1668033189019" duration="2000" />
+      <workItem from="1668072403181" duration="951000" />
+      <workItem from="1668085836138" duration="1942000" />
+      <workItem from="1668094988091" duration="2058000" />
+      <workItem from="1668098139481" duration="61000" />
+      <workItem from="1668099441890" duration="4458000" />
+      <workItem from="1668335955718" duration="6892000" />
+      <workItem from="1668365810628" duration="1344000" />
+      <workItem from="1668376143185" duration="848000" />
+      <workItem from="1669655727726" duration="7873000" />
+      <workItem from="1669758401054" duration="618000" />
+      <workItem from="1670105711461" duration="138000" />
+      <workItem from="1670108658214" duration="647000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+</project>
