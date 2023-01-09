@@ -19,7 +19,7 @@ if (isset($_POST['token'])){
     exit();
 }
 
-// ověření délky pole s přáním a hodnotou množství
+// ověření délky pole s přáním, hodnotou množství а s datem
 if (strlen($wish) > 100 or $count < 1 or empty($wish) or strlen($_POST['count']) > 9 or !(validateDate($date))){
     if (strlen($wish) > 100){
         $_SESSION['wish-message'] = 'Your wish is too long';
@@ -30,7 +30,7 @@ if (strlen($wish) > 100 or $count < 1 or empty($wish) or strlen($_POST['count'])
     if ($count < 1 or strlen($_POST['count']) > 9){
         $_SESSION['count-message'] = 'The allowed number is from 1 to 99999999';
     }
-    if (!(validateDate($date))){
+    if (!(validateDate($date))){ // funkce ze souboru validation.php
         $_SESSION['date-message'] = 'Enter correct date (yyyy-mm-dd)';
     }
     header("Location: ../update.php?id=$id&wish=$wish&count=$count&date=$date&page=$page");
