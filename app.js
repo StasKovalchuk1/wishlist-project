@@ -75,7 +75,7 @@ function validateWish(event){
         let y = document.getElementById('err2');
         y.innerHTML = "<p>Try a smaller value</p>";
     }
-    if (!(date.match(/^(\d{4})-(\d{1,2})-(\d{1,2})/))) {
+    if (!(date.match(/^(\d{4})-(\d{1,2})-(\d{1,2})/)) && date) {
         event.preventDefault();
         let z = document.getElementById('err3');
         z.innerHTML = "<p>Enter correct date (yyyy-mm-dd)</p>";

@@ -11,6 +11,9 @@ function clean($value){
 }
 
 function validateDate($date){
+    if ($date == NULL){
+        return true;
+    }
     $pattern = '/^(\d{4})-(\d{1,2})-(\d{1,2})/';
     if (preg_match($pattern, $date)){ // shoda s regulárním výrazem
         $list = explode('-', $date);
