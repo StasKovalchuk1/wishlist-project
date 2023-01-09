@@ -90,3 +90,18 @@ if (inputCount) {
         }
     }, false);
 }
+
+var inputDate = document.querySelector("#date");
+if (inputDate) {
+    inputDate.addEventListener("input", function (e) {
+        if (!(inputDate.value.match(/^(\d{4})-(\d{1,2})-(\d{1,2})/)) && inputDate.value != 0) {
+            let errDate = document.querySelector('#err3');
+            errDate.innerHTML = "<p id='validateDate'>Enter correct date (yyyy-mm-dd)</p>";
+        } else {
+            var elem = document.getElementById("validateDate");
+            if (elem) {
+                elem.parentNode.removeChild(elem);
+            }
+        }
+    }, false);
+}

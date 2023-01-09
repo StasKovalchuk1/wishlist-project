@@ -59,6 +59,7 @@ function validateAuthorization(event){
 function validateWish(event){
     var wish = document.querySelector(".wish").value;
     var count = document.querySelector(".count").value;
+    var date = document.querySelector(".date").value;
     if (wish.length > 100) {
         event.preventDefault();
         let x = document.getElementById('err1');
@@ -73,6 +74,11 @@ function validateWish(event){
         event.preventDefault();
         let y = document.getElementById('err2');
         y.innerHTML = "<p>Try a smaller value</p>";
+    }
+    if (!(date.match(/^(\d{4})-(\d{1,2})-(\d{1,2})/))) {
+        event.preventDefault();
+        let z = document.getElementById('err3');
+        z.innerHTML = "<p>Enter correct date (yyyy-mm-dd)</p>";
     }
 }
 

@@ -122,7 +122,14 @@ else{
           </div>
           <div class="row">
             <label for="date" class="form-label">By what time? (optional)</label>
-            <input type="date" name="date" id="date" class="form-box" value="<?= isset($date) ? $date : ''?>">
+            <input type="date" name="date" id="date" class="form-box date" value="<?= isset($date) ? $date : ''?>">
+              <p class="err" id="err3"></p>
+              <?php
+              if (isset($_SESSION['date-message'])){
+                  echo '<p class="err"> ' . $_SESSION['date-message'] . '</p>';
+              }
+              unset($_SESSION['date-message']);
+              ?>
           </div>
             <div class="row">
                 <label for="checkbox" class="form-label">Click if you are cool! (optional)</label>

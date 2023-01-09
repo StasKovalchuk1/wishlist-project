@@ -106,7 +106,7 @@
 
     <div class="form">
         <div class="container">
-            <form action="main/update.php?page=<?=$_GET['page'] ?>" method="post" id="form3">
+            <form action="main/update.php?page=<?=$_GET['page'] ?? ''?>" method="post" id="form3">
                 <div class="form-field">
                     <fieldset>
                         <legend class="form-title">Update your item</legend>
@@ -140,7 +140,14 @@
                         </div>
                         <div class="row">
                             <label for="date" class="form-label">By what time? (optional)</label>
-                            <input type="date" name="date" id="date" class="form-box" value="<?= $date ?? '' ?>">
+                            <input type="date" name="date" id="date" class="form-box date" value="<?= $date ?? '' ?>">
+                            <p class="err" id="err3"></p>
+                            <?php
+                            if (isset($_SESSION['date-message'])){
+                                echo '<p class="err"> ' . $_SESSION['date-message'] . '</p>';
+                            }
+                            unset($_SESSION['date-message']);
+                            ?>
                         </div>
 
                         <input type="submit" value="Update item" class="btn btn-form">

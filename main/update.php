@@ -10,11 +10,17 @@ $id = $_POST['id'];
 $wish = clean($_POST['item']);
 $count = $_POST['count'];
 $date = $_POST['date'];
-$token = $_POST['token'];
 $page = $_GET['page'];
+if (isset($_POST['token'])){
+    $token = $_POST['token'];
+} else {
+    $_SESSION['message'] = 'Error: CSRF attack!';
+    header("Location: ../update.php?id=$id&page=$page");
+    exit();
+}
 
 // ověření délky pole s přáním a hodnotou množství
-if (strlen($wish) > 100 or $count < 1 or empty($wish) or strlen($_POST['count']) > 9){
+if (strlen($wish) > 100 or $count < 1 or empty($wish) or strlen($_POST['count']) > 9 or !(validateDate($date))){
     if (strlen($wish) > 100){
         $_SESSION['wish-message'] = 'Your wish is too long';
     }
@@ -23,6 +29,9 @@ if (strlen($wish) > 100 or $count < 1 or empty($wish) or strlen($_POST['count'])
     }
     if ($count < 1 or strlen($_POST['count']) > 9){
         $_SESSION['count-message'] = 'The allowed number is from 1 to 99999999';
+    }
+    if (!(validateDate($date))){
+        $_SESSION['date-message'] = 'Enter correct date (yyyy-mm-dd)';
     }
     header("Location: ../update.php?id=$id&wish=$wish&count=$count&date=$date&page=$page");
     exit();
@@ -45,9 +54,9 @@ foreach ($result as $row){
     }
 }
 
-if (($token <> $_SESSION['token']) or !(isset($_SESSION['token']))){
+if (($token <> $_SESSION['token']) or !(isset($_POST['token']))){
     $_SESSION['message'] = 'Error: CSRF attack!';
-    header("Location: ../update.php?id=$id&wish=$wish&count=$count&date=$date");
+    header("Location: ../update.php?id=$id&page=$page");
     exit();
 }
 
