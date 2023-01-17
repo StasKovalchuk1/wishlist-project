@@ -4,6 +4,7 @@
 session_start();
 require_once "connect.php";
 $id = $_GET['id'];
+$id = mysqli_real_escape_string($connect, $id);
 $token = $_POST['token'];
 $page = $_GET['page'];
 

@@ -12,7 +12,9 @@
     require_once "validation.php";
     $username = $_POST['username'];
     $username = clean($username);
+    $username = mysqli_real_escape_string($connect, $username);
     $password = $_POST['password'];
+    $password = mysqli_real_escape_string($connect, $password);
     $confirm = $_POST['confirm'];
     // validace vstupních polí
     if ((strlen($username) < 5) or ($confirm <> $password) or (strlen($_POST['password']) < 8) or strlen($username) > 20 or strlen($_POST['password']) > 20){

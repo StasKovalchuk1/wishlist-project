@@ -5,8 +5,9 @@ session_start();
 require_once 'connect.php';
 require_once "validation.php";
 $searchName = $_POST['search-login'];
-$searchName = clean($searchName); // je pole se jménem vymazáno ze značek html a php,
+$searchName = clean($searchName);// je pole se jménem vymazáno ze značek html a php,
                                   // speciální znaky jsou převedeny na entity HTML
+$searchName = mysqli_real_escape_string($connect, $searchName);
 
 
 // přihlášený uživatel nemůže hledat svůj seznam

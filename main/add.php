@@ -10,10 +10,10 @@ session_start();
     require_once "validation.php";
 
     $userID = $_COOKIE['userID'];
-
-    $wish = $_POST['item'];
-    $wish = clean($wish);
-    $count = $_POST['count'];
+    $userID = mysqli_real_escape_string($connect, $userID);
+    $wish = clean($_POST['item']);
+    $wish = mysqli_real_escape_string($connect, $wish);
+    $count = mysqli_real_escape_string($connect, $_POST['count']);
     if (isset($_POST['token'])){
         $token = $_POST['token'];
     } else {
@@ -59,6 +59,7 @@ if (($token == $_SESSION['token']) and isset($_SESSION['token'])){
     }
     else{
         $date = $_POST['date'];
+        $date = mysqli_real_escape_string($connect, $date);
         // ověření délky pole s přáním, hodnotou množství а s datem
         if (strlen($wish) > 100 or $count < 1 or empty($wish) or strlen($_POST['count']) > 9 or !(validateDate($date))){
             if (strlen($wish) > 100){

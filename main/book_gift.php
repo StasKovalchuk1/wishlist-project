@@ -18,6 +18,7 @@ if (isset($_SESSION['session'])){
     else{
         if ($_SESSION['session'] == 'active'){
             $id = $_GET['id'];
+            $id = mysqli_real_escape_string($connect, $id);
             mysqli_query($connect, "UPDATE `wishes` SET `reservation` = '".$_COOKIE['userID']."' WHERE `wishes`.`id` = '$id'");
             header("Location: ../searchPage.php?page=$page");
         }

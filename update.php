@@ -59,7 +59,7 @@
         if ($_COOKIE['theme'] == 'blue-theme'){
             echo '<body class="blue-theme">';
         }
-        else if ($_COOKIE['theme'] == 'pink-theme'){
+        else{
             echo '<body class="pink-theme">';
         }
     }

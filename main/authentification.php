@@ -13,6 +13,7 @@ session_start();
     require_once "validation.php";
     $username = $_POST['username'];
     $username = clean($username);
+    $username = mysqli_real_escape_string($connect, $username);
     $password = $_POST['password'];
 
 

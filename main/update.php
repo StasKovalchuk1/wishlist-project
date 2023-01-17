@@ -8,8 +8,10 @@ require_once "validation.php";
 require_once "connect.php";
 $id = $_POST['id'];
 $wish = clean($_POST['item']);
-$count = $_POST['count'];
+$wish = mysqli_real_escape_string($connect, $wish);
+$count = mysqli_real_escape_string($connect, $_POST['count']);
 $date = $_POST['date'];
+$date = mysqli_real_escape_string($connect, $date);
 $page = $_GET['page'];
 if (isset($_POST['token'])){
     $token = $_POST['token'];
