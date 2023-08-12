@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>WishList</title>
+  <link rel="stylesheet" th:href="@{/style.css}">
+  <link rel="stylesheet" href="print.css" media="print">
+  <link href="https://fonts.googleapis.com/css2?family=Lato:wght@100;200;300;400;500;700&display=swap" rel="stylesheet">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<!--<body class="pink-theme">-->
+
+<body class="blue-theme">
+
+<!-- Header -->
+
+<header class="header" id="header">
+  <div class="container">
+    <div class="header-inner">
+      <div class="header-title">
+        <h4 class="corner-title">make<br>others<br>happy___</h4>
+      </div>
+      <nav class="nav" id="nav">
+        <a href="welcome" class="nav-link">Home</a>
+        <a href="mywishlist" class="nav-link">Wishlist</a>
+        <form action="main/destroySession" method="post"><button class="nav-link logout">Log out</button></form>
+       <a href="login" class="nav-link">Log in</a>
+        <form class="nav-link search-btn" action="searchlist">
+          <button class="search" id="search">
+            <img src="img/search1.jpg" alt="" class="icon-search">
+          </button>
+        </form>
+      </nav>
+    </div>
+  </div>
+</header>
+
+<!--Title-->
+
+<div class="list-title">
+
+ <h2>My Wishlist</h2>
+
+</div>
+
+<!-- WishList-->
+
+<div class="wishlist">
+  <div class="container">
+    <div class="wishlist-inner">
+      <form action="mywishlist/add" method="get">
+        <button class="btn btn-green">add another item</button>
+      </form>
+
+      <table>
+        <thead>
+        <tr>
+          <th>Name</th>
+          <th>Count</th>
+          <th>Date</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="wish : ${wishes}">
+          <td th:text="${wish.name}"></td>
+          <td th:text="${wish.count}"></td>
+          <td th:text="${wish.fordate}"></td>
+        </tr>
+        </tbody>
+      </table>
+  </div>
+</div>
+</div>
+</body>
+</html>

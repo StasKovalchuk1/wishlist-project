@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Login</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="print.css" media="print">
+  <link href="https://fonts.googleapis.com/css2?family=Lato:wght@100;200;300;400;500;700&display=swap" rel="stylesheet">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script src="app.js"></script>
+</head>
+<!--<body class="pink-theme">-->
+<body class="blue-theme">
+
+<!-- Header -->
+<header class="header" id="header">
+  <div class="container">
+    <div class="header-inner">
+      <div class="header-title">
+        <h4 class="corner-title">make<br>others<br>happy___</h4>
+      </div>
+      <nav class="nav" id="nav">
+        <a href="welcomepage" class="nav-link">Home</a>
+        <a href="mywishlist" class="nav-link">Wishlist</a>
+       <form action="" method="post"><button class="nav-link logout">Log out</button></form>
+       <a href="login" class="nav-link">Log in</a>
+        <form class="nav-link search-btn" action="searchlist">
+          <button class="search" id="search">
+            <img src="img/search1.jpg" alt="" class="icon-search">
+          </button>
+        </form>
+      </nav>
+    </div>
+  </div>
+</header>
+
+
+<!--Login-->
+
+<div class="form">
+  <div class="container">
+    <form action="main/authentification" method="post" id="form2">
+      <div class="form-field">
+        <fieldset>
+          <legend class="form-title">Log in to your account</legend>
+          <div class="row">
+            <label for="login" class="form-label">Username (5-20 characters)</label>
+            <input type="text" name="username" id="login" class="form-box pattern login" required value="<?= isset($username) ? $username : ''?>" pattern="\w{5,20}">
+          </div>
+          <div class="row">
+            <label for="password" class="form-label">Password (8-20 characters)</label>
+            <input type="password" name="password" id="password" class="form-box pattern password" required pattern="\w{8,20}">
+          </div>
+
+          <input type="submit" value="Login" class="btn btn-form">
+          <p>Dont have an account yet? <a href="registration">Sign up!</a></p>
+
+        </fieldset>
+      </div>
+
+    </form>
+  </div>
+</div>
+</body>
+</html>
