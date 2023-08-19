@@ -8,6 +8,7 @@ import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.Id;
 import java.util.Date;
+import java.util.List;
 
 @Data
 @Entity
@@ -30,5 +31,9 @@ public class Wish {
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     @Temporal(TemporalType.TIMESTAMP)
     private Date fordate;
+
+    @OneToMany(mappedBy = "wish", cascade = CascadeType.ALL,orphanRemoval = true)
+    @ToString.Exclude
+    private List<UserWishMapping> userWishMappings;
 
 }

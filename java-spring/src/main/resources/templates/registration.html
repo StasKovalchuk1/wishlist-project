@@ -22,9 +22,11 @@
         <h4 class="corner-title">make<br>others<br>happy___</h4>
       </div>
       <nav class="nav" id="nav">
-        <a href="welcomepage" class="nav-link">Home</a>
+        <a href="welcome" class="nav-link">Home</a>
         <a href="mywishlist" class="nav-link">Wishlist</a>
-       <form action="" method="post"><button class="nav-link logout">Log out</button></form>
+       <form th:action="@{/logout}" method="post">
+         <button class="nav-link logout">Log out</button>
+       </form>
         <a href="login" class="nav-link">Log in</a>
         <form class="nav-link search-btn" action="searchlist">
           <button class="search" id="search">
@@ -40,22 +42,22 @@
 
 <div class="form">
   <div class="container">
-    <form action="main/registration" method="post" id="form">
+    <form th:action="@{/register}" method="post" id="form">
       <div class="form-field">
         <fieldset>
           <legend class="form-title">Register a new account</legend>
           <div class="row" id="row1">
             <label for="login" class="form-label">Username (5-20 characters)</label>
-            <input type="text" name="username" id="login" class="form-box login pattern" required value="<?= isset($username) ? $username : ''?>" pattern="\w{5,20}">
+            <input type="text" name="username" id="login" class="form-box login pattern" required pattern="\w{5,20}">
 
           </div>
           <div class="row" id="row2">
             <label for="password" class="form-label">Password (8-20 characters)</label>
-            <input type="password" name="password" id="password" class="form-box password pattern" required pattern="\w{8,20}">
+            <input type="password" name="password" id="password" class="form-box password pattern" required pattern="\w{1,20}">
           </div>
           <div class="row">
             <label for="confirm-password" class="form-label">Confirm password</label>
-            <input type="password" name="confirm" id="confirm-password" class="form-box confirm pattern" required pattern="\w{8,20}">
+            <input type="password" name="confirm" id="confirm-password" class="form-box confirm pattern" required pattern="\w{1,20}">
           </div>
 
           <input type="submit" value="Register" class="btn btn-form">

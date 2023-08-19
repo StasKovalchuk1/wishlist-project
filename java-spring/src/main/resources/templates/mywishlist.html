@@ -4,7 +4,6 @@
   <meta charset="UTF-8">
   <title>WishList</title>
   <link rel="stylesheet" th:href="@{/style.css}">
-  <link rel="stylesheet" href="print.css" media="print">
   <link href="https://fonts.googleapis.com/css2?family=Lato:wght@100;200;300;400;500;700&display=swap" rel="stylesheet">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
@@ -23,7 +22,7 @@
       <nav class="nav" id="nav">
         <a href="welcome" class="nav-link">Home</a>
         <a href="mywishlist" class="nav-link">Wishlist</a>
-        <form action="main/destroySession" method="post"><button class="nav-link logout">Log out</button></form>
+        <form th:action="@{/logout}" method="post"><button class="nav-link logout">Log out</button></form>
        <a href="login" class="nav-link">Log in</a>
         <form class="nav-link search-btn" action="searchlist">
           <button class="search" id="search">
@@ -48,7 +47,7 @@
 <div class="wishlist">
   <div class="container">
     <div class="wishlist-inner">
-      <form action="mywishlist/add" method="get">
+      <form th:action="@{/mywishlist/add}" method="get">
         <button class="btn btn-green">add another item</button>
       </form>
 
@@ -65,6 +64,12 @@
           <td th:text="${wish.name}"></td>
           <td th:text="${wish.count}"></td>
           <td th:text="${wish.fordate}"></td>
+          <td>
+            <a th:href="@{mywishlist/wish-delete/{wishId}(wishId=${wish.id})}">delete</a>
+<!--            <form th:action="@{/mywishlist/{wishId}(wishId=${wish.id})}" method="get">-->
+<!--              <button class="search" type="submit"><img src="img/delete.png" class="delete"></button>-->
+<!--            </form>-->
+          </td>
         </tr>
         </tbody>
       </table>

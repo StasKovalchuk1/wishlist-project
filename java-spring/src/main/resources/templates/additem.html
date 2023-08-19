@@ -22,8 +22,8 @@
       </div>
       <nav class="nav" id="nav">
         <a th:href="@{/}" class="nav-link">Home</a>
-        <a href="mywishlist" class="nav-link">Wishlist</a>
-        <form action="" method="post"><button class="nav-link logout">Log out</button></form>
+        <a th:href="@{/mywishlist}" class="nav-link">Wishlist</a>
+        <form th:action="@{/logout}" method="post"><button class="nav-link logout">Log out</button></form>
         <a href="login" class="nav-link">Log in</a>
         <form class="nav-link search-btn" action="searchlist">
           <button class="search" id="search">

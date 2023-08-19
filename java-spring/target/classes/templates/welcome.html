@@ -23,8 +23,9 @@
         <a href="welcomepage" class="nav-link">Home</a>
         <a href="login" class="nav-link">Log in</a>
         <a href="mywishlist" class="nav-link">Wishlist</a>
-        <form action="main/destroySession.php" method="post"><button class="nav-link logout">Log out</button></form>
-<!--        <a href="login.php" class="nav-link">Log in</a>-->
+        <form th:action="@{/logout}" method="post">
+          <button class="nav-link logout">Log out</button>
+        </form>
         <form class="nav-link search-btn" action="searchlist">
           <button class="search" id="search">
             <img src="img/search1.jpg" alt="" class="icon-search">
