@@ -20,6 +20,7 @@ import wishlist.data.WishRepository;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 @Controller
 @RequestMapping("/mywishlist")
@@ -54,9 +55,14 @@ public class MyWishlistController {
         model.addAttribute("wishes", allWishes);
     }
 
+    @ModelAttribute
+    public void getUsername(Model model) {
+        currentUser = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        model.addAttribute("username", currentUser.getUsername());
+    }
+
     @GetMapping
-    public String showMyWishlist() {
-        return "mywishlist"; }
+    public String showMyWishlist() {return "mywishlist"; }
 
     @GetMapping("/add")
     public String showFormToAddItem() { return "additem"; }
@@ -70,6 +76,7 @@ public class MyWishlistController {
 
         Wish savedWish = wishRepository.save(wish);
         currentUser = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        System.out.println(wish.getId());
 
         UserWishMappingId id = new UserWishMappingId();
         id.setUserId(currentUser.getId());
@@ -85,14 +92,41 @@ public class MyWishlistController {
     @GetMapping("/wish-delete/{wishId}")
     public String deleteWish(@PathVariable("wishId") int id) {
         try{
-            List<Wish> curWishes = (List<Wish>) wishRepository.findAll();
-            for (Wish wish : curWishes) {
-                System.out.println(wish);
-            }
+//            List<Wish> curWishes = (List<Wish>) wishRepository.findAll();
+//            for (Wish wish : curWishes) {
+//                System.out.println(wish);
+//            }
             wishRepository.deleteById(id);
             System.out.println("done");
         } catch (Exception e) {
-            System.out.println("xyj");
+            System.out.println("xyz");
+        }
+
+        return "redirect:/mywishlist";
+    }
+
+    @GetMapping("/wish-edit/{wishId}")
+    public String editWishForm(@PathVariable("wishId") int id, Model model){
+        Optional<Wish> wishForUpdate = wishRepository.findById(id);
+        model.addAttribute("wish", wishForUpdate);
+        return "editWish";
+    }
+
+    @PostMapping("/wish-edit")
+    public String editWish(@ModelAttribute("wish") Wish editedWish){
+        Optional<Wish> oldWish = wishRepository.findById(editedWish.getId());
+        System.out.println(editedWish.getId());
+
+        if (oldWish.isPresent()) {
+            Wish wishToUpdate = oldWish.get();
+            List<UserWishMapping> currentUserWishMappings = editedWish.getUserWishMappings();
+
+            wishToUpdate.setName(editedWish.getName());
+            wishToUpdate.setCount(editedWish.getCount());
+            wishToUpdate.setFordate(editedWish.getFordate());
+            wishToUpdate.setUserWishMappings(currentUserWishMappings);
+
+            wishRepository.save(wishToUpdate);
         }
 
         return "redirect:/mywishlist";

@@ -25,7 +25,7 @@
         <a th:href="@{/mywishlist}" class="nav-link">Wishlist</a>
         <form th:action="@{/logout}" method="post"><button class="nav-link logout">Log out</button></form>
         <a href="login" class="nav-link">Log in</a>
-        <form class="nav-link search-btn" action="searchlist">
+        <form class="nav-link search-btn" th:action="@{/search}">
           <button class="search" id="search">
             <img src="img/search1.jpg" alt="" class="icon-search">
           </button>

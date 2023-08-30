@@ -20,11 +20,11 @@
         <h4 class="corner-title">make<br>others<br>happy___</h4>
       </div>
       <nav class="nav" id="nav">
-        <a href="welcome" class="nav-link">Home</a>
-        <a href="mywishlist" class="nav-link">Wishlist</a>
+        <a th:href="@{/}" class="nav-link">Home</a>
+        <a th:href="@{/mywishlist}" class="nav-link">Wishlist</a>
         <form th:action="@{/logout}" method="post"><button class="nav-link logout">Log out</button></form>
        <a href="login" class="nav-link">Log in</a>
-        <form class="nav-link search-btn" action="searchlist">
+        <form class="nav-link search-btn" th:action="@{/search}" method="get">
           <button class="search" id="search">
             <img src="img/search1.jpg" alt="" class="icon-search">
           </button>
@@ -38,7 +38,7 @@
 
 <div class="list-title">
 
- <h2>My Wishlist</h2>
+ <h2 th:text="${username + ' Wishlist'}"></h2>
 
 </div>
 
@@ -66,10 +66,11 @@
           <td th:text="${wish.fordate}"></td>
           <td>
             <a th:href="@{mywishlist/wish-delete/{wishId}(wishId=${wish.id})}">delete</a>
-<!--            <form th:action="@{/mywishlist/{wishId}(wishId=${wish.id})}" method="get">-->
-<!--              <button class="search" type="submit"><img src="img/delete.png" class="delete"></button>-->
-<!--            </form>-->
           </td>
+          <td>
+            <a th:href="@{mywishlist/wish-edit/{wishId}(wishId=${wish.id})}">edit</a>
+          </td>
+
         </tr>
         </tbody>
       </table>

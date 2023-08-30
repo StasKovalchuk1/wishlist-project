@@ -29,6 +29,6 @@ public class RegistrationController {
     public String processRegistration(RegistrationForm form) {
         userRepository.save(form.toUser(passwordEncoder));
         System.out.println(userRepository.findAll());
-        return "redirect:/welcome";
+        return "redirect:/login";
     }
 }

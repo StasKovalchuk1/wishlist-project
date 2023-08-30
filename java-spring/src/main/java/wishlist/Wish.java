@@ -32,7 +32,8 @@ public class Wish {
     @Temporal(TemporalType.TIMESTAMP)
     private Date fordate;
 
-    @OneToMany(mappedBy = "wish", cascade = CascadeType.ALL,orphanRemoval = true)
+//    @OneToMany(mappedBy = "wish", cascade = CascadeType.ALL,orphanRemoval = true)
+    @OneToMany(mappedBy = "wish", cascade = CascadeType.ALL)
     @ToString.Exclude
     private List<UserWishMapping> userWishMappings;
 

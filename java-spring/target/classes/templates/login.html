@@ -20,11 +20,11 @@
         <h4 class="corner-title">make<br>others<br>happy___</h4>
       </div>
       <nav class="nav" id="nav">
-        <a href="welcome" class="nav-link">Home</a>
-        <a href="mywishlist" class="nav-link">Wishlist</a>
+        <a th:href="@{/}" class="nav-link">Home</a>
+        <a th:href="@{/mywishlist}" class="nav-link">Wishlist</a>
        <form th:action="@{/logout}" method="post"><button class="nav-link logout">Log out</button></form>
        <a href="login" class="nav-link">Log in</a>
-        <form class="nav-link search-btn" action="searchlist">
+        <form class="nav-link search-btn" th:action="@{/search}">
           <button class="search" id="search">
             <img src="img/search1.jpg" alt="" class="icon-search">
           </button>
