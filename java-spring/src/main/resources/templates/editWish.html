@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>WishList</title>
+  <link rel="stylesheet" th:href="@{/style.css}">
+  <link rel="stylesheet" href="print.css" media="print">
+  <link href="https://fonts.googleapis.com/css2?family=Lato:wght@100;200;300;400;500;700&display=swap" rel="stylesheet">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body class="blue-theme">
+<header class="header" id="header">
+  <div class="container">
+    <div class="header-inner">
+      <div class="header-title">
+        <h4 class="corner-title">make<br>others<br>happy___</h4>
+      </div>
+      <nav class="nav" id="nav">
+        <a th:href="@{/}" class="nav-link">Home</a>
+        <a th:href="@{/mywishlist}" class="nav-link">Wishlist</a>
+        <form th:action="@{/logout}" method="post"><button class="nav-link logout">Log out</button></form>
+        <a href="login" class="nav-link">Log in</a>
+        <form class="nav-link search-btn" th:action="@{/search}">
+          <button class="search" id="search">
+            <img src="img/search1.jpg" alt="" class="icon-search">
+          </button>
+        </form>
+      </nav>
+    </div>
+  </div>
+</header>
+
+<div class="form">
+  <div class="container">
+    <form th:action="@{/mywishlist}" th:object="${wish}" method="post" id="form3">
+      <div class="form-field">
+        <fieldset>
+          <legend class="form-title">Edit an item</legend>
+          <div class="row">
+            <label th:for="${#ids.next('name')}" class="form-label">What would you like? (0-100 characters)</label>
+            <input type="text" th:field="*{name}" placeholder="e.g. t-shirt" class="form-box wish" required >
+
+          </div>
+          <div class="row">
+            <label th:for="${#ids.next('count')}" class="form-label">How much?</label>
+            <input type="number" th:field="*{count}" class="form-box count" min="1" max="999999999" required>
+          </div>
+          <div class="row">
+            <label th:for="${#ids.next('fordate')}" class="form-label">By what time? (optional)</label>
+            <input type="date" th:field="*{fordate}" class="form-box date">
+
+          </div>
+          <input type="hidden" th:field="*{id}" />
+          <button>Edit</button>
+
+        </fieldset>
+      </div>
+    </form>
+  </div>
+</div>
+
+</body>
+</html>
