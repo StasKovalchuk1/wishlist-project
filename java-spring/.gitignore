@@ -1,9 +1,0 @@
-.gitignore
-.idea
-.git
-.DS_Store
-java-spring/mvnw
-java-spring/mvnw.cmd
-java-spring/.gitignore
-img
-main
