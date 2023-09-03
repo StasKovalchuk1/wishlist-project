@@ -353,11 +353,11 @@ input{
 }
 
 th, td{
-    padding: 10px 40px;
+    padding: 10px 25px;
 }
 
 th{
-    width: 30%;
+    width: 25%;
 }
 
 table {
