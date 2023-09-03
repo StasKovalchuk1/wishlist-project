@@ -3,8 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <title>WishList</title>
-  <link rel="stylesheet" href="style.css">
-  <link rel="stylesheet" href="print.css" media="print">
+  <link rel="stylesheet" th:href="@{/style.css}">
   <link href="https://fonts.googleapis.com/css2?family=Lato:wght@100;200;300;400;500;700&display=swap" rel="stylesheet">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
@@ -24,7 +23,7 @@
         <a th:href="@{/mywishlist}" class="nav-link">Wishlist</a>
         <form th:action="@{/logout}" method="post"><button class="nav-link logout">Log out</button></form>
         <a href="login" class="nav-link">Log in</a>
-        <form class="nav-link search-btn" th:action="@{/search}">
+        <form class="nav-link search-btn" th:action="@{/searchPage}">
           <button class="search" id="search">
             <img src="img/search1.jpg" alt="" class="icon-search">
           </button>
@@ -36,7 +35,7 @@
 <!--Title-->
 
 <div class="list-title">
-  <h2 th:text="${searchedUsername + ' Wishlist'}"></h2>
+  <h2 th:text="${session.searchedUsername + ' Wishlist'}"></h2>
 </div>
 
 <div class="wishlist">
@@ -47,11 +46,27 @@
           <th>Wish</th>
           <th>Count</th>
           <th>Date</th>
+          <th>Reserved By</th>
         </tr>
-        <tr th:each="wish : ${searchedWishlist}">
+        <tr th:each="wish : ${session.searchedWishlist}">
           <td th:text="${wish.name}"></td>
           <td th:text="${wish.count}"></td>
           <td th:text="${wish.fordate}"></td>
+          <td>
+            <span th:if="${wish.reservedBy}">
+              <p th:text="${wish.reservedBy}"></p>
+              <span th:if="${session.username}==${wish.reservedBy}">
+                <form th:action="@{/searchPage/list/cancel/{wishId}(wishId=${wish.id})}" method="post">
+                  <input type="submit" value="cancel">
+                </form>
+              </span>
+            </span>
+            <span th:unless="${wish.reservedBy}">
+              <form th:action="@{/searchPage/list/reservation/{wishId}(wishId=${wish.id})}" method="post">
+                <input type="submit" value="reserve">
+              </form>
+            </span>
+          </td>
         </tr>
 
       </table>

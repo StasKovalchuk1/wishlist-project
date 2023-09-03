@@ -3,8 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <title>Search</title>
-  <link rel="stylesheet" href="style.css">
-  <link rel="stylesheet" href="print.css" media="print">
+  <link rel="stylesheet" th:href="@{/style.css}">
   <link href="https://fonts.googleapis.com/css2?family=Lato:wght@100;200;300;400;500;700&display=swap" rel="stylesheet">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
@@ -21,7 +20,7 @@
         <a th:href="@{/mywishlist}" class="nav-link">Wishlist</a>
         <form th:action="@{/logout}" method="post"><button class="nav-link logout">Log out</button></form>
         <a href="login" class="nav-link">Log in</a>
-        <form class="nav-link search-btn" th:action="@{/search}">
+        <form class="nav-link search-btn" th:action="@{/searchPage}">
           <button class="search" id="search">
             <img src="img/search1.jpg" alt="" class="icon-search">
           </button>
@@ -35,7 +34,7 @@
 
 <div class="form">
   <div class="container">
-    <form th:action="@{/search}" method="post" id="form4">
+    <form th:action="@{/searchPage/list}" method="post" id="form4">
       <div class="form-field">
         <fieldset>
           <legend class="form-title">Search the list</legend>

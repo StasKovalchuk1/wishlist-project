@@ -11,6 +11,8 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import wishlist.User;
 import wishlist.data.UserRepository;
 
+import javax.servlet.http.HttpSession;
+
 @Configuration
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
@@ -21,7 +23,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
         http
                 .authorizeRequests()
-                .antMatchers("/mywishlist", "/orders").access("hasRole('USER')")
+                .antMatchers("/mywishlist", "/searchPage/reservation").access("hasRole('USER')")
                 .antMatchers("/", "/**").access("permitAll()")
 
                 .and()
@@ -34,10 +36,13 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     }
 
     @Bean
-    public UserDetailsService userDetailsService(UserRepository userRepository) {
+    public UserDetailsService userDetailsService(UserRepository userRepository, HttpSession session) {
         return username -> {
             User user = userRepository.findByUsername(username);
-            if (user != null) return user;
+            if (user != null) {
+                session.setAttribute("username", user.getUsername());
+                return user;
+            }
             throw new UsernameNotFoundException("User " + username + " not found.");
         };
     }

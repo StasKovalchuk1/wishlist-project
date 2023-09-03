@@ -55,11 +55,11 @@ public class MyWishlistController {
         model.addAttribute("wishes", allWishes);
     }
 
-    @ModelAttribute
-    public void getUsername(Model model) {
-        currentUser = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-        model.addAttribute("username", currentUser.getUsername());
-    }
+//    @ModelAttribute
+//    public void getUsername(Model model) {
+//        currentUser = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+//        model.addAttribute("username", currentUser.getUsername());
+//    }
 
     @GetMapping
     public String showMyWishlist() {return "mywishlist"; }
@@ -74,6 +74,7 @@ public class MyWishlistController {
             return "redirect:/mywishlist/add";
         }
 
+        wish.setReservedBy(null);
         Wish savedWish = wishRepository.save(wish);
         currentUser = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         System.out.println(wish.getId());
@@ -92,10 +93,6 @@ public class MyWishlistController {
     @GetMapping("/wish-delete/{wishId}")
     public String deleteWish(@PathVariable("wishId") int id) {
         try{
-//            List<Wish> curWishes = (List<Wish>) wishRepository.findAll();
-//            for (Wish wish : curWishes) {
-//                System.out.println(wish);
-//            }
             wishRepository.deleteById(id);
             System.out.println("done");
         } catch (Exception e) {
